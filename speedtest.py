@@ -1,21 +1,24 @@
-import blinkt
-import os
-import re
-import subprocess
-import time
+import speedtest
+import pandas as pd
 
+NUM_TESTS = 2
+TEST_NAME = "test 1"
 
+def dl_speed(speedtest):
+  return speedtest.download()
+
+def ul_speed(speedtest):
+  return speedtest.upload()
 
 if __name__ == "__main__":
-  response = subprocess.Popen('speedtest-cli --simple', shell=True, stdout=subprocess.PIPE).stdout.read()
-  blinkt.set_pixel(0, 255, 255, 255)
-  blinkt.show()
-  blinkt.set_pixel(0, 255, 255, 255)
-  blinkt.show()
-  ping = re.findall('Ping:\s(.*?)\s', response, re.MULTILINE)
-  download = re.findall('Download:\s(.*?)\s', response, re.MULTILINE)
-  upload = re.findall('Upload:\s(.*?)\s', response, re.MULTILINE)
+  s = speedtest.Speedtest()
+  s.get_best_server()
+  download = []
+  upload = []
+  for test in range(0, NUM_TESTS):
+    download.append(s.download())
+    upload.append(s.upload())
 
-  ping[0] = ping[0].replace(',', '.')
-  download[0] = download[0].replace(',', '.')
-  upload[0] = upload[0].replace(',', '.')
+
+  d = pd.DataFrame(data = [download,upload], columns = ["download","upload"])
+  d.to_csv(TEST_NAME + ".csv")
