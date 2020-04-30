@@ -86,7 +86,8 @@ if __name__ == "__main__":
     download.append(dl_speed(s))
     download.append(ul_speed(s))
     print(download)
-    d.append(download, ignore_index=True)
+    a = pd.Series(download, index = d.columns)
+    d.append(a, ignore_index=True)
     print(d)
 
   print(d)
