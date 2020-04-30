@@ -3,8 +3,8 @@ import pandas as pd
 import time
 import blinkt
 
-NUM_TESTS = 2
-TEST_NAME = "test 1"
+NUM_TESTS = 5
+TEST_NAME = "1ft"
 
 def set_green():
   blinkt.clear()
