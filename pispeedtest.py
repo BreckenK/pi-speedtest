@@ -19,7 +19,7 @@ def set_green():
   blinkt.set_pixel(7, 0, 255, 0)
   blinkt.show()
 
-def set_blue()
+def set_blue():
   blinkt.clear()
   blinkt.set_brightness(.1)
   blinkt.set_pixel(0, 0, 0, 255)
@@ -32,7 +32,7 @@ def set_blue()
   blinkt.set_pixel(7, 0, 0, 255)
   blinkt.show()
 
-def set_red()
+def set_red():
   blinkt.clear()
   blinkt.set_brightness(.1)
   blinkt.set_pixel(0, 255, 0, 0)
