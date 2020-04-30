@@ -62,8 +62,8 @@ if __name__ == "__main__":
   for test in range(0, NUM_TESTS):
     set_green()
     time.sleep(3)
-    download.append(s.download())
-    upload.append(s.upload())
+    download.append(dl_speed(s))
+    upload.append(ul_speed(s))
 
 
   d = pd.DataFrame(data = [download,upload], columns = ["download","upload"])
