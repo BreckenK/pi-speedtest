@@ -87,6 +87,7 @@ if __name__ == "__main__":
     download.append(ul_speed(s))
     print(download)
     d.append(download, ignore_index=True)
+    print(d)
 
-
+  print(d)
   d.to_csv(TEST_NAME + ".csv")
