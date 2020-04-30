@@ -55,11 +55,12 @@ def ul_speed(speedtest):
   return speedtest.upload()
 
 if __name__ == "__main__":
-  s = speedtest.Speedtest()
-  s.get_best_server()
+  
   download = []
   upload = []
   for test in range(0, NUM_TESTS):
+    s = speedtest.Speedtest()
+    s.get_best_server()
     set_green()
     time.sleep(3)
     download.append(dl_speed(s))
