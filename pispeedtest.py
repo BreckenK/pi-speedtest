@@ -67,7 +67,7 @@ if __name__ == "__main__":
     time.sleep(3)
     download.append(dl_speed(s))
     download.append(ul_speed(s))
-    d.append(download)
+    d.append({'download':download[0],'upload':download[1]})
 
 
   d.to_csv(TEST_NAME + ".csv")
