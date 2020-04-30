@@ -10,13 +10,21 @@ def set_green():
   blinkt.clear()
   blinkt.set_brightness(.1)
   blinkt.set_pixel(0, 0, 255, 0)
+  time.sleep(1)
   blinkt.set_pixel(1, 0, 255, 0)
+  time.sleep(1)
   blinkt.set_pixel(2, 0, 255, 0)
+  time.sleep(1)
   blinkt.set_pixel(3, 0, 255, 0)
+  time.sleep(1)
   blinkt.set_pixel(4, 0, 255, 0)
+  time.sleep(1)
   blinkt.set_pixel(5, 0, 255, 0)
+  time.sleep(1)
   blinkt.set_pixel(6, 0, 255, 0)
+  time.sleep(1)
   blinkt.set_pixel(7, 0, 255, 0)
+  time.sleep(1)
   blinkt.show()
 
 def set_blue():
@@ -48,11 +56,15 @@ def set_red():
 
 def dl_speed(speedtest):
   set_blue()
-  return speedtest.download()
+  s = speedtest.download()
+  print(s)
+  return s
 
 def ul_speed(speedtest):
   set_red()
-  return speedtest.upload()
+  s = speedtest.upload()
+  print(s)
+  return s
 
 if __name__ == "__main__":
   
@@ -64,7 +76,6 @@ if __name__ == "__main__":
     s = speedtest.Speedtest()
     s.get_best_server()
     set_green()
-    time.sleep(3)
     download.append(dl_speed(s))
     download.append(ul_speed(s))
     d.append({'download':download[0],'upload':download[1]}, ignore_index=True)
