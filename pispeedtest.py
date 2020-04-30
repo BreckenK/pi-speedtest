@@ -57,7 +57,7 @@ def ul_speed(speedtest):
 if __name__ == "__main__":
   
 
-  d = pd.DataFrame(columns = ["download","upload"], ignore_index=True)
+  d = pd.DataFrame(columns = ["download","upload"])
 
   for test in range(0, NUM_TESTS):
     download = []
@@ -67,7 +67,7 @@ if __name__ == "__main__":
     time.sleep(3)
     download.append(dl_speed(s))
     download.append(ul_speed(s))
-    d.append({'download':download[0],'upload':download[1]})
+    d.append({'download':download[0],'upload':download[1]}, ignore_index=True)
 
 
   d.to_csv(TEST_NAME + ".csv")
