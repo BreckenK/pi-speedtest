@@ -57,7 +57,7 @@ def ul_speed(speedtest):
 if __name__ == "__main__":
   
 
-  d = pd.DataFrame(columns = ["download","upload"])
+  d = pd.DataFrame(columns = ["download","upload"], ignore_index=True)
 
   for test in range(0, NUM_TESTS):
     download = []
