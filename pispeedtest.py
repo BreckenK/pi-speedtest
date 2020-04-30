@@ -59,7 +59,7 @@ if __name__ == "__main__":
 
 
   for test in range(0, NUM_TESTS):
-     download = []
+    download = []
     s = speedtest.Speedtest()
     s.get_best_server()
     set_green()
