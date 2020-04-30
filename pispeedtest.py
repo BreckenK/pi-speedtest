@@ -78,6 +78,7 @@ if __name__ == "__main__":
     set_green()
     download.append(dl_speed(s))
     download.append(ul_speed(s))
+    print(download)
     d.append({'download':download[0],'upload':download[1]}, ignore_index=True)
 
 
