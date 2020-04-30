@@ -74,14 +74,14 @@ def ul_speed(speedtest):
   return s
 
 if __name__ == "__main__":
-  
+  s = speedtest.Speedtest()
+  s.get_best_server()
 
   d = pd.DataFrame(columns = ["download","upload"])
 
   for test in range(0, NUM_TESTS):
     download = []
-    s = speedtest.Speedtest()
-    s.get_best_server()
+
     set_green()
     download.append(dl_speed(s))
     download.append(ul_speed(s))
