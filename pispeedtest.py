@@ -6,60 +6,33 @@ import blinkt
 NUM_TESTS = 5
 TEST_NAME = "1ft"
 
-def set_green():
-  blinkt.clear()
-  blinkt.set_brightness(.1)
-  blinkt.set_pixel(0, 0, 255, 0)
-  time.sleep(1)
-  blinkt.show()
-  blinkt.set_pixel(1, 0, 255, 0)
-  time.sleep(1)
-  blinkt.show()
-  blinkt.set_pixel(2, 0, 255, 0)
-  time.sleep(1)
-  blinkt.show()
-  blinkt.set_pixel(3, 0, 255, 0)
-  time.sleep(1)
-  blinkt.show()
-  blinkt.set_pixel(4, 0, 255, 0)
-  time.sleep(1)
-  blinkt.show()
-  blinkt.set_pixel(5, 0, 255, 0)
-  time.sleep(1)
-  blinkt.show()
-  blinkt.set_pixel(6, 0, 255, 0)
-  time.sleep(1)
-  blinkt.show()
-  blinkt.set_pixel(7, 0, 255, 0)
-  time.sleep(1)
-  blinkt.show()
-
+#set the light blue for a download speed test
 def set_blue():
   blinkt.clear()
   blinkt.set_brightness(.1)
-  blinkt.set_pixel(0, 0, 0, 255)
-  blinkt.set_pixel(1, 0, 0, 255)
-  blinkt.set_pixel(2, 0, 0, 255)
-  blinkt.set_pixel(3, 0, 0, 255)
-  blinkt.set_pixel(4, 0, 0, 255)
-  blinkt.set_pixel(5, 0, 0, 255)
-  blinkt.set_pixel(6, 0, 0, 255)
-  blinkt.set_pixel(7, 0, 0, 255)
+  for i in range(7):
+    blinkt.set_pixel(i, 0, 0, 255)
   blinkt.show()
 
+#set the light red to indicate an upload speed test
 def set_red():
   blinkt.clear()
   blinkt.set_brightness(.1)
-  blinkt.set_pixel(0, 255, 0, 0)
-  blinkt.set_pixel(1, 255, 0, 0)
-  blinkt.set_pixel(2, 255, 0, 0)
-  blinkt.set_pixel(3, 255, 0, 0)
-  blinkt.set_pixel(4, 255, 0, 0)
-  blinkt.set_pixel(5, 255, 0, 0)
-  blinkt.set_pixel(6, 255, 0, 0)
-  blinkt.set_pixel(7, 255, 0, 0)
+  for i in range(7):
+    blinkt.set_pixel(0, 255, 0, 0)
   blinkt.show()
+  
+#green is used as a timer, so lights should update individually, therefore show is contained in the loop
+def set_green():
+  blinkt.clear()
+  blinkt.set_brightness(.1)
+  for i in range(7):
+    blinkt.set_pixel(i, 0, 255, 0)
+    time.sleep(1)
+    blinkt.show()
 
+
+  
 
 def dl_speed(speedtest):
   set_blue()
